@@ -62,8 +62,8 @@ const Dashboard = () => {
             >
               <section className="section">
                 <div className="row">
+                <Categories />
                   <SubCategories />
-                  <Categories />
                 </div>
               </section>
             </div>

@@ -199,6 +199,11 @@ const SubCategories = () => {
     const handlePageChange = (page) => {
         setCurrentPage(page);
     };
+    const getMainCategoryName = (mainCategoryId) => {
+        const mainCategory = mainCategories.find((category) => category.id === mainCategoryId);
+        return mainCategory ? mainCategory.name : 'Main Category Not Found';
+    };
+    
     return (
         <><div className="col-lg-7">
             <div className="card" style={{ boxShadow: '0px 0px 6px rgba(1, 41, 112, 0.1)' }}>
@@ -219,6 +224,7 @@ const SubCategories = () => {
                                 <th style={{ color: "#012970" }} scope="col">Name</th>
                                 <th style={{ color: "#012970" }} scope="col">Description</th>
                                 <th style={{ color: "#012970" }} scope="col">Catcode</th>
+                                <th style={{ color: "#012970" }} scope="col">Main_Catogorey</th>
                                 <th style={{ color: "#012970" }} scope="col">Actions</th>
                             </tr>
                         </thead>
@@ -229,6 +235,8 @@ const SubCategories = () => {
                                     <td>{subcategory.name}</td>
                                     <td>{subcategory.description}</td>
                                     <td>{subcategory.catcode}</td>
+                                    <td>{getMainCategoryName(subcategory.main_category_id)}</td>
+
                                     <td>
                                         <i
                                             data-bs-toggle="modal"
